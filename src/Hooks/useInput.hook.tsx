@@ -1,21 +1,17 @@
 import { useState } from "react";
 
-interface useInputProps {
-  initialValue: string;
-}
-
 interface useInputReturnProps {
   value: string;
-  changeValue: (value: string) => void;
-  resetValue: (resetString?: string) => void;
+  changeValue: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  resetField: (resetString?: string) => void;
 }
 
-const useInput = ({ initialValue }: useInputProps): useInputReturnProps => {
-  const [state, setState] = useState(initialValue);
+const useInput = (initialValue: string): useInputReturnProps => {
+  const [state, setState] = useState<string>(initialValue);
   return {
     value: state,
-    changeValue: (value: string) => setState(value),
-    resetValue: (resetString?: string) =>
+    changeValue: (event) => setState(event.target.value),
+    resetField: (resetString?: string) =>
       setState(resetString ? resetString : ""),
   };
 };
