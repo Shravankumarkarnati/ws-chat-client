@@ -24,20 +24,20 @@ const Login: React.FC<LoginProps> = () => {
 
   const loginFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setErrorMessage("");
     const values = { username, password };
     const registerUrl = `${process.env.REACT_APP_API_URL}/login`;
     const response = await axios.post(registerUrl, {
       data: values,
     });
     if (response.data.success) {
+      resetPassword();
+      resetUsername();
       changeContext!({
         ...context,
         currentPage: "Home",
         username: response.data.username,
       });
-      setErrorMessage("");
-      resetPassword();
-      resetUsername();
     } else {
       setErrorMessage(response.data.message);
     }
