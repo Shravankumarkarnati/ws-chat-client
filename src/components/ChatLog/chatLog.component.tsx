@@ -29,7 +29,8 @@ const ChatLogs: React.FC<ChatLogsProps> = () => {
         },
       })
       .then((results) => {
-        return results.data.results;
+        if (results.data.success) return results.data.results;
+        return [];
       });
   };
 

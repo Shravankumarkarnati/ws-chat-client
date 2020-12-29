@@ -14,17 +14,7 @@ const useDebouncedSearch = (searchFunction: Function, time: number = 1000) => {
   );
 
   useAsync(async () => {
-    if (inputText.length === 0) {
-      changeContext!({
-        ...context,
-        search: {
-          ...context.search,
-          loadingStatus: false,
-          results: [],
-          status: false,
-        },
-      });
-    } else if (inputText.length !== 0) {
+    if (inputText.length !== 0) {
       changeContext!({
         ...context,
         search: {
