@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import AppContext from "../../Model/context";
 import Header from "../header/header.component";
+import Login from "../Login/Login.component";
 import Register from "./../Register/Register.component";
 
 interface LayoutProps {}
@@ -14,7 +15,13 @@ const Layout: React.FC<LayoutProps> = () => {
                     shadow-2xl z-10"
     >
       <Header />
-      {context.currentPage === "Register" ? <Register /> : <h1>HomePage</h1>}
+      {context.currentPage === "Register" ? (
+        <Register />
+      ) : context.currentPage === "Login" ? (
+        <Login />
+      ) : (
+        <h1>Home</h1>
+      )}
     </div>
   );
 };

@@ -30,6 +30,7 @@ const TextInput: React.FC<TextInputProps> = ({
         placeholder={label}
         value={value}
         onChange={changeValue}
+        required
       />
     </div>
   );

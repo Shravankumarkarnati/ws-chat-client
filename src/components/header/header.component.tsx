@@ -7,12 +7,21 @@ interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
   const { changeContext, ...context } = useContext(AppContext);
-  const registerBtnHandler = () => {
+  const changePageHandler = (changePage: typeof context.currentPage) => {
     changeContext!({
       ...context,
-      currentPage: context.currentPage === "Home" ? "Register" : "Home",
+      currentPage: changePage,
     });
   };
+
+  const LogoutHandler = () => {
+    changeContext!({
+      ...context,
+      username: null,
+      currentPage: "Home",
+    });
+  };
+
   return (
     <div
       className="container h-16 
@@ -20,13 +29,33 @@ const Header: React.FC<HeaderProps> = () => {
       p-2"
     >
       <Logo />
-      <Button
-        onclick={registerBtnHandler}
-        btnText={context.currentPage === "Home" ? "Register" : "Home"}
-      />
-      {/* logo 
-        register/login/loggedin
-        */}
+      <div className="flex items-center justify-end">
+        {context.username ? (
+          <Button
+            onclick={LogoutHandler}
+            btnText={`${context.username} (Logout) `}
+          />
+        ) : context.currentPage === "Home" ? (
+          <>
+            <Button
+              onclick={() => changePageHandler("Login")}
+              btnText={"Login"}
+              classNames={["mr-3"]}
+            />
+            <Button
+              onclick={() => changePageHandler("Register")}
+              btnText={"Register"}
+            />
+          </>
+        ) : (
+          <>
+            <Button
+              onclick={() => changePageHandler("Home")}
+              btnText={"Home"}
+            />
+          </>
+        )}
+      </div>
     </div>
   );
 };

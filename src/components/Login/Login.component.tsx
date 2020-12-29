@@ -5,9 +5,9 @@ import AppContext from "../../Model/context";
 import Button from "../Button/button.component";
 import TextInput from "../TextInput/TextInput.component";
 
-interface RegisterProps {}
+interface LoginProps {}
 
-const Register: React.FC<RegisterProps> = () => {
+const Login: React.FC<LoginProps> = () => {
   const {
     value: username,
     changeValue: changeUsername,
@@ -22,12 +22,10 @@ const Register: React.FC<RegisterProps> = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const { changeContext, ...context } = useContext(AppContext);
 
-  const registerFormSubmit = async (
-    event: React.FormEvent<HTMLFormElement>
-  ) => {
+  const loginFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const values = { username, password };
-    const registerUrl = `${process.env.REACT_APP_API_URL}/register`;
+    const registerUrl = `${process.env.REACT_APP_API_URL}/login`;
     const response = await axios.post(registerUrl, {
       data: values,
     });
@@ -42,22 +40,20 @@ const Register: React.FC<RegisterProps> = () => {
       resetUsername();
     } else {
       setErrorMessage(response.data.message);
-      console.log(response.data.error, "409 error");
     }
   };
-
   return (
     <div className="flex flex-col justify-start items-center pt-20">
       <h1
         className="font-extrabold text-3xl md:text-4xl uppercase
                     text-indigo-600 tracking-widest leading-8 "
       >
-        Register
+        Login
       </h1>
       {errorMessage !== "" ? (
         <p className="mt-4 text-red-600">{errorMessage}</p>
       ) : null}
-      <form method="POST" onSubmit={registerFormSubmit} className="mt-4">
+      <form method="POST" onSubmit={loginFormSubmit} className="mt-4">
         <TextInput
           id="username"
           label="Username"
@@ -80,4 +76,4 @@ const Register: React.FC<RegisterProps> = () => {
     </div>
   );
 };
-export default Register;
+export default Login;
