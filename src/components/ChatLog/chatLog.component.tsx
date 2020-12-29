@@ -1,27 +1,48 @@
-import React from "react";
+import axios from "axios";
+import React, { useContext } from "react";
 import { HiSearch } from "react-icons/hi";
 import { ImCross } from "react-icons/im";
 import useDebouncedSearch from "../../Hooks/useDebouncedHook";
+import AppContext from "../../Model/context";
+import SearchResults from "./searchResults.component";
 
 interface ChatLogsProps {}
 
-const useSearchUsernameResults = () =>
-  useDebouncedSearch((text: string) => searchUsernameResults(text));
-
-const searchUsernameResults = async (text: string) => {
-  const apiUrl = `${process.env.REACT_APP_API_URL as string}/search`;
-  console.log(text, apiUrl);
-};
-
 const ChatLogs: React.FC<ChatLogsProps> = () => {
-  const { inputText, setInputText, searchResults } = useSearchUsernameResults();
+  const { changeContext, ...context } = useContext(AppContext);
+
+  const useSearchUsernameResults = () =>
+    useDebouncedSearch((text: string) => searchUsernameResults(text));
+
+  const { inputText, setInputText } = useSearchUsernameResults();
 
   const changeInputText = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputText(event.target.value);
   };
 
+  const searchUsernameResults = async (text: string) => {
+    const apiUrl = `${process.env.REACT_APP_API_URL as string}/search`;
+    return axios
+      .post(apiUrl, {
+        data: {
+          searchKeyWord: text,
+        },
+      })
+      .then((results) => {
+        return results.data.results;
+      });
+  };
+
   const clearSearchBox = () => {
     setInputText("");
+    changeContext!({
+      ...context,
+      search: {
+        ...context.search,
+        results: [],
+        status: false,
+      },
+    });
   };
 
   return (
@@ -49,20 +70,7 @@ const ChatLogs: React.FC<ChatLogsProps> = () => {
           </div>
         ) : null}
       </div>
-      <div>
-        {searchResults.loading && <div>...</div>}
-        {searchResults.error && <div>Error</div>}
-        {searchResults.result && (
-          <div>
-            <div>Results</div>
-            <ul>
-              {/* {searchResults.result.map((hero) => (
-                <li key={hero.name}>{hero.name}</li>
-              ))} */}
-            </ul>
-          </div>
-        )}
-      </div>
+      <SearchResults />
     </div>
   );
 };
