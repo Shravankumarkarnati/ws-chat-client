@@ -7,16 +7,22 @@ interface CurrentChatProps {}
 const CurrentChat: React.FC<CurrentChatProps> = () => {
   const { value, changeValue, resetField } = useInput("");
   const { currentChat } = useContext(AppContext);
-  const sendMessage = () => {
+
+  const sendMessage = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     console.log("message Sent: " + value + "currentChat: ", currentChat);
     resetField();
   };
+
   return (
     <div
       className="h-full w-full p-2 rounded-xl overflow-hidden
                      flex flex-col-reverse justify-between items-stretch"
     >
-      <div className="h-16 flex justify-between items-center bg-blue-200 p-1">
+      <form
+        className="h-16 flex justify-between items-center bg-blue-200 p-1"
+        onSubmit={sendMessage}
+      >
         <input
           placeholder="Type..."
           type="text"
@@ -29,11 +35,10 @@ const CurrentChat: React.FC<CurrentChatProps> = () => {
                     bg-blue-500 text-white shadow-lg
                     hover:opacity-80
         "
-          onClick={sendMessage}
         >
           SEND
         </button>
-      </div>
+      </form>
       <div className="flex-1 flex flex-col bg-red-300"></div>
     </div>
   );

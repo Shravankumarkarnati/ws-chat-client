@@ -38,7 +38,11 @@ const Register: React.FC<RegisterProps> = () => {
       changeContext!({
         ...context,
         currentPage: "Home",
-        username: response.data.username,
+        loggedIn: {
+          flag: true,
+          username: response.data.username,
+          id: response.data.id,
+        },
       });
     } else {
       setErrorMessage(response.data.message);

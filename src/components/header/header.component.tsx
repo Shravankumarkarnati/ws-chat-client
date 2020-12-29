@@ -17,7 +17,11 @@ const Header: React.FC<HeaderProps> = () => {
   const LogoutHandler = () => {
     changeContext!({
       ...context,
-      username: null,
+      loggedIn: {
+        flag: false,
+        username: null,
+        id: null,
+      },
       currentPage: "Home",
     });
   };
@@ -30,10 +34,10 @@ const Header: React.FC<HeaderProps> = () => {
     >
       <Logo />
       <div className="flex items-center justify-end">
-        {context.username ? (
+        {context.loggedIn.flag ? (
           <Button
             onclick={LogoutHandler}
-            btnText={`${context.username} (Logout) `}
+            btnText={`${context.loggedIn.username} (Logout) `}
           />
         ) : context.currentPage === "Home" ? (
           <>
