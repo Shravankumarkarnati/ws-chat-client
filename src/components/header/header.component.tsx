@@ -23,6 +23,7 @@ const Header: React.FC<HeaderProps> = () => {
         id: null,
       },
       currentPage: "Home",
+      currentChatWith: null,
     });
   };
 

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import AppContext from "../../Model/context";
-import openSocket from "socket.io-client";
+import { socket } from "./../../App";
 
 interface SearchResultsProps {}
 interface SearchResultItemProps {
@@ -17,15 +17,12 @@ const SearchResultItem: React.FC<SearchResultItemProps> = ({
   const openCurrentChat = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
-    const socket = openSocket(process.env.REACT_APP_SOCKET_URL as string);
-
-    socket.emit("initChat", {
-      sender: context.currentChat,
-      receiver: context.currentChat,
+    socket.emit("message", {
+      sender: context.loggedIn.username,
+      receiver: context.currentChatWith,
     });
 
     changeContext!({
-      currentChat: event.currentTarget.dataset.cursor,
       ...context,
       search: {
         results: null,
@@ -34,6 +31,7 @@ const SearchResultItem: React.FC<SearchResultItemProps> = ({
         loadingStatus: false,
       },
       currentPage: "Home",
+      currentChatWith: event.currentTarget.dataset.cursor || null,
     });
   };
   return (

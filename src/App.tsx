@@ -2,6 +2,9 @@ import React, { useContext, useState } from "react";
 import "./app.css";
 import Layout from "./components/layout/layout.components";
 import AppContext, { IAppContext } from "./Model/context";
+import openSocket from "socket.io-client";
+
+export const socket = openSocket(process.env.REACT_APP_SOCKET_URL as string);
 
 function App() {
   const context = useContext(AppContext);

@@ -4,6 +4,7 @@ import useInput from "../../Hooks/useInput.hook";
 import AppContext from "../../Model/context";
 import Button from "../Button/button.component";
 import TextInput from "../TextInput/TextInput.component";
+import { socket } from "./../../App";
 
 interface LoginProps {}
 
@@ -41,6 +42,10 @@ const Login: React.FC<LoginProps> = () => {
           username: response.data.username,
           id: response.data.id,
         },
+      });
+      socket.emit("login", {
+        username: response.data.username,
+        id: response.data.id,
       });
     } else {
       setErrorMessage(response.data.message);

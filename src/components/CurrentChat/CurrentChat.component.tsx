@@ -6,11 +6,11 @@ interface CurrentChatProps {}
 
 const CurrentChat: React.FC<CurrentChatProps> = () => {
   const { value, changeValue, resetField } = useInput("");
-  const { currentChat } = useContext(AppContext);
+  const { currentChatWith } = useContext(AppContext);
 
   const sendMessage = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("message Sent: " + value + "currentChat: ", currentChat);
+    console.log("message Sent: " + value + "currentChat: ", currentChatWith);
     resetField();
   };
 

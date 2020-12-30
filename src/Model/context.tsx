@@ -13,7 +13,7 @@ export interface IAppContext {
     loadingStatus: Boolean;
     error: null | string;
   };
-  currentChat: null | number;
+  currentChatWith: null | string;
   changeContext?: (newContext: IAppContext) => void;
 }
 
@@ -30,7 +30,7 @@ const AppContext = createContext<IAppContext>({
     loadingStatus: false,
     error: null,
   },
-  currentChat: null,
+  currentChatWith: null,
 });
 
 export default AppContext;
