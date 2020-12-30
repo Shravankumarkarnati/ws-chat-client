@@ -2,16 +2,17 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import useInput from "../../Hooks/useInput.hook";
-import { changeCurrentPageAction } from "../../redux/currentPageReducer/actions";
 import Button from "../Button/button.component";
 import TextInput from "../TextInput/TextInput.component";
 import { socket } from "./../../App";
+import { usePageChangeHandler } from "./../../Hooks/usePageChangeHandler";
 import { logInAction } from "./../../redux/userReducer/actions";
 
 interface LoginProps {}
 
 const Login: React.FC<LoginProps> = () => {
   const dispatch = useDispatch();
+  const { homeChangePageHandler } = usePageChangeHandler();
 
   const {
     value: username,
@@ -28,7 +29,7 @@ const Login: React.FC<LoginProps> = () => {
 
   const onLoginDispatch = (username: string, id: string) => {
     dispatch(logInAction({ username, id }));
-    dispatch(changeCurrentPageAction({ changeTo: "HOME" }));
+    homeChangePageHandler();
   };
 
   const loginFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {

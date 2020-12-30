@@ -1,13 +1,11 @@
-import React, { useContext } from "react";
-import AppContext from "../../Model/context";
-import Button from "../Button/button.component";
-import Logo from "../Logo/Logo.component";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/rootReducer";
 import { logOutAction } from "../../redux/userReducer/actions";
+import Button from "../Button/button.component";
+import Logo from "../Logo/Logo.component";
+import { usePageChangeHandler } from "./../../Hooks/usePageChangeHandler";
 import { currentChatWithAction } from "./../../redux/userReducer/actions";
-import { changeCurrentPageAction } from "../../redux/currentPageReducer/actions";
-import { typeOfCurrentPage } from "../../redux/currentPageReducer/reducer";
 
 interface HeaderProps {}
 
@@ -16,9 +14,11 @@ const Header: React.FC<HeaderProps> = () => {
   const { loggedIn, username } = useSelector((state: RootState) => state.user);
   const { currentPage } = useSelector((state: RootState) => state.currentPage);
 
-  const changePageHandler = (changePage: typeOfCurrentPage) => {
-    dispatch(changeCurrentPageAction({ changeTo: changePage }));
-  };
+  const {
+    regChangePageHandler,
+    homeChangePageHandler,
+    loginChangePageHandler,
+  } = usePageChangeHandler();
 
   const LogoutHandler = () => {
     dispatch(logOutAction());
@@ -38,23 +38,13 @@ const Header: React.FC<HeaderProps> = () => {
         ) : (
           <>
             {currentPage !== "LOGIN" && (
-              <Button
-                onclick={() => changePageHandler("LOGIN")}
-                btnText={"Login"}
-                classNames={["mr-3"]}
-              />
+              <Button onclick={loginChangePageHandler} btnText={"Login"} />
             )}
             {currentPage !== "REGISTER" && (
-              <Button
-                onclick={() => changePageHandler("REGISTER")}
-                btnText={"Register"}
-              />
+              <Button onclick={regChangePageHandler} btnText={"Register"} />
             )}
             {currentPage !== "HOME" && (
-              <Button
-                onclick={() => changePageHandler("HOME")}
-                btnText={"HOME"}
-              />
+              <Button onclick={homeChangePageHandler} btnText={"HOME"} />
             )}
           </>
         )}
