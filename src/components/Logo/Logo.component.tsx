@@ -1,16 +1,14 @@
-import React, { useContext } from "react";
-import AppContext from "../../Model/context";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { changeCurrentPageAction } from "../../redux/currentPageReducer/actions";
 
 interface LogoProps {}
 
 const Logo: React.FC<LogoProps> = () => {
-  const { changeContext, ...context } = useContext(AppContext);
+  const dispatch = useDispatch();
 
   const onLogoClick = () => {
-    changeContext!({
-      ...context,
-      currentPage: "Home",
-    });
+    dispatch(changeCurrentPageAction({ changeTo: "HOME" }));
   };
 
   return (

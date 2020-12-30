@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import useInput from "../../Hooks/useInput.hook";
+import { changeCurrentPageAction } from "../../redux/currentPageReducer/actions";
 import Button from "../Button/button.component";
 import TextInput from "../TextInput/TextInput.component";
 import { socket } from "./../../App";
@@ -27,6 +28,7 @@ const Login: React.FC<LoginProps> = () => {
 
   const onLoginDispatch = (username: string, id: string) => {
     dispatch(logInAction({ username, id }));
+    dispatch(changeCurrentPageAction({ changeTo: "HOME" }));
   };
 
   const loginFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -60,7 +62,7 @@ const Login: React.FC<LoginProps> = () => {
       {errorMessage !== "" ? (
         <p className="mt-4 text-red-600">{errorMessage}</p>
       ) : null}
-      <form method="POST" onSubmit={loginFormSubmit} className="mt-4">
+      <form onSubmit={loginFormSubmit} className="mt-4">
         <TextInput
           id="username"
           label="Username"

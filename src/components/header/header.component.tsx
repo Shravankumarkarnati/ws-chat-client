@@ -2,29 +2,27 @@ import React, { useContext } from "react";
 import AppContext from "../../Model/context";
 import Button from "../Button/button.component";
 import Logo from "../Logo/Logo.component";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../redux/rootReducer";
+import { logOutAction } from "../../redux/userReducer/actions";
+import { currentChatWithAction } from "./../../redux/userReducer/actions";
+import { changeCurrentPageAction } from "../../redux/currentPageReducer/actions";
+import { typeOfCurrentPage } from "../../redux/currentPageReducer/reducer";
 
 interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
-  const { changeContext, ...context } = useContext(AppContext);
-  const changePageHandler = (changePage: typeof context.currentPage) => {
-    changeContext!({
-      ...context,
-      currentPage: changePage,
-    });
+  const dispatch = useDispatch();
+  const { loggedIn, username } = useSelector((state: RootState) => state.user);
+  const { currentPage } = useSelector((state: RootState) => state.currentPage);
+
+  const changePageHandler = (changePage: typeOfCurrentPage) => {
+    dispatch(changeCurrentPageAction({ changeTo: changePage }));
   };
 
   const LogoutHandler = () => {
-    changeContext!({
-      ...context,
-      loggedIn: {
-        flag: false,
-        username: null,
-        id: null,
-      },
-      currentPage: "Home",
-      currentChatWith: null,
-    });
+    dispatch(logOutAction());
+    dispatch(currentChatWithAction({ id: null }));
   };
 
   return (
@@ -35,29 +33,29 @@ const Header: React.FC<HeaderProps> = () => {
     >
       <Logo />
       <div className="flex items-center justify-end">
-        {context.loggedIn.flag ? (
-          <Button
-            onclick={LogoutHandler}
-            btnText={`${context.loggedIn.username} (Logout) `}
-          />
-        ) : context.currentPage === "Home" ? (
-          <>
-            <Button
-              onclick={() => changePageHandler("Login")}
-              btnText={"Login"}
-              classNames={["mr-3"]}
-            />
-            <Button
-              onclick={() => changePageHandler("Register")}
-              btnText={"Register"}
-            />
-          </>
+        {loggedIn ? (
+          <Button onclick={LogoutHandler} btnText={`${username} (Logout) `} />
         ) : (
           <>
-            <Button
-              onclick={() => changePageHandler("Home")}
-              btnText={"Home"}
-            />
+            {currentPage !== "LOGIN" && (
+              <Button
+                onclick={() => changePageHandler("LOGIN")}
+                btnText={"Login"}
+                classNames={["mr-3"]}
+              />
+            )}
+            {currentPage !== "REGISTER" && (
+              <Button
+                onclick={() => changePageHandler("REGISTER")}
+                btnText={"Register"}
+              />
+            )}
+            {currentPage !== "HOME" && (
+              <Button
+                onclick={() => changePageHandler("HOME")}
+                btnText={"HOME"}
+              />
+            )}
           </>
         )}
       </div>
