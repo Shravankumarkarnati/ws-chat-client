@@ -1,14 +1,17 @@
 import axios from "axios";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import useInput from "../../Hooks/useInput.hook";
-import AppContext from "../../Model/context";
 import Button from "../Button/button.component";
 import TextInput from "../TextInput/TextInput.component";
 import { socket } from "./../../App";
+import { logInAction } from "./../../redux/userReducer/actions";
 
 interface LoginProps {}
 
 const Login: React.FC<LoginProps> = () => {
+  const dispatch = useDispatch();
+
   const {
     value: username,
     changeValue: changeUsername,
@@ -21,7 +24,10 @@ const Login: React.FC<LoginProps> = () => {
   } = useInput("");
 
   const [errorMessage, setErrorMessage] = useState("");
-  const { changeContext, ...context } = useContext(AppContext);
+
+  const onLoginDispatch = (username: string, id: string) => {
+    dispatch(logInAction({ username, id }));
+  };
 
   const loginFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -34,15 +40,7 @@ const Login: React.FC<LoginProps> = () => {
     if (response.data.success) {
       resetPassword();
       resetUsername();
-      changeContext!({
-        ...context,
-        currentPage: "Home",
-        loggedIn: {
-          flag: true,
-          username: response.data.username,
-          id: response.data.id,
-        },
-      });
+      onLoginDispatch(response.data.username, response.data.id);
       socket.emit("login", {
         // username: response.data.username,
         id: response.data.id,
@@ -85,4 +83,5 @@ const Login: React.FC<LoginProps> = () => {
     </div>
   );
 };
+
 export default Login;
