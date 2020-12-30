@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.5.0",
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
@@ -52,7 +53,10 @@
   "devDependencies": {
     "@craco/craco": "^6.0.0",
     "@types/node": "^12.19.11",
+    "@types/redux": "^3.6.0",
+    "@types/redux-logger": "^3.0.8",
     "@types/socket.io-client": "^1.4.34",
+    "@types/webpack-env": "^1.16.0",
     "@typescript-eslint/eslint-plugin": "^4.11.0",
     "@typescript-eslint/parser": "^4.11.0",
     "autoprefixer": "^9.8.6",
@@ -63,6 +67,7 @@
     "eslint-plugin-react": "^7.21.5",
     "postcss-nested": "^5.0.3",
     "prettier": "^2.2.1",
+    "redux-logger": "^3.0.6",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2"
   }
 }

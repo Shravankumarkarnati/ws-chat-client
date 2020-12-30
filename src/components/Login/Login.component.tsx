@@ -44,7 +44,7 @@ const Login: React.FC<LoginProps> = () => {
         },
       });
       socket.emit("login", {
-        username: response.data.username,
+        // username: response.data.username,
         id: response.data.id,
       });
     } else {
