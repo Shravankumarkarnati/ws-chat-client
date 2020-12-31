@@ -5,6 +5,16 @@ module.exports = {
     fontFamily: {
       inter: ["Inter", "sans-serif"],
     },
+    screens: {
+      xsm: "350px",
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1440px",
+      "3xl": "1800px",
+      "4xl": "2400px",
+    },
     extend: {
       colors: {
         "alice-blue": "#e6f2ff",
@@ -20,7 +30,7 @@ module.exports = {
   variants: {
     extend: {
       outline: ["active"],
-      margin: ["last"],
+      margin: ["last", "focus-within"],
     },
   },
   plugins: [],

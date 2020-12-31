@@ -15,8 +15,8 @@ function App() {
   return (
     <AppContext.Provider value={{ ...state, changeContext }}>
       <div
-        className="App font-inter absolute z-20
-                    w-full h-full p-0 md:p-16 2xl:p-32"
+        className="App font-inter w-full h-full  
+                    p-0 lg:p-16 absolute z-20"
       >
         <Layout />
       </div>

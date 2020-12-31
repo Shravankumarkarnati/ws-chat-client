@@ -6,9 +6,10 @@ interface HomeProps {}
 
 const Home: React.FC<HomeProps> = () => {
   return (
-    <div className="container flex-1 h-fill flex justify-start items-stretch">
+    <div className="w-full h-full flex items-stretch">
       <ChatLogs />
-      <CurrentChat />
+      <div className="flex-1 bg-black"></div>
+      {/* <CurrentChat /> */}
     </div>
   );
 };
