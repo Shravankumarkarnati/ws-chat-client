@@ -10,7 +10,7 @@ const Logo: React.FC<LogoProps> = () => {
   return (
     <div
       className="flex items-center justify-center 
-                h-full w-14
+                h-full w-14 ml-8
                  "
       onClick={homeChangePageHandler}
     >

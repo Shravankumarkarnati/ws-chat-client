@@ -9,7 +9,7 @@ function App() {
   return (
     <div
       className="App font-inter w-full h-full  
-                    p-0 lg:p-16 absolute z-20"
+                    p-0 lg:p-8 absolute z-20"
     >
       <Layout />
     </div>

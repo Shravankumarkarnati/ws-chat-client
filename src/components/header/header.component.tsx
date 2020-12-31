@@ -6,6 +6,7 @@ import Button from "../Button/button.component";
 import Logo from "../Logo/Logo.component";
 import { usePageChangeHandler } from "./../../Hooks/usePageChangeHandler";
 import { currentChatWithAction } from "./../../redux/userReducer/actions";
+import SearchBar from "./searchBar.component";
 
 interface HeaderProps {}
 
@@ -27,13 +28,14 @@ const Header: React.FC<HeaderProps> = () => {
 
   return (
     <div
-      className="w-full h-20 lg:h-16 3xl:h-24 
-                  bg-alice-blue
+      className="w-full h-14 lg:h-14 3xl:h-14 
+                  bg-gray-300
                   flex items-center justify-between
                   px-4 py-2
     "
     >
       <Logo />
+      <SearchBar />
       <div className="flex items-center justify-end">
         {loggedIn ? (
           <Button onclick={LogoutHandler} btnText={`${username} (Logout) `} />

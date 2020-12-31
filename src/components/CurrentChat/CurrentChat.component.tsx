@@ -39,11 +39,17 @@ const CurrentChat: React.FC<CurrentChatProps> = () => {
           />
           <Button
             btnText="Send"
-            classNames={["h-full", "px-4", "rounded-full"]}
+            classNames={[
+              "h-full",
+              "px-4",
+              "rounded-full",
+              value.length ? "bg-jade" : "",
+              value.length ? "text-white" : "",
+            ]}
           />
         </form>
       </div>
-      <div className="messages bg-red-500 flex-1"></div>
+      <div className="messages flex-1 bg-hawkes-blue flex flex-col-reverse"></div>
       <div
         className="header border-2 border-gray-500 h-12
                       flex items-center justify-between
@@ -55,8 +61,6 @@ const CurrentChat: React.FC<CurrentChatProps> = () => {
         </div>
         <p className="text-lg text-black font-semibold">{username}</p>
       </div>
-
-      {/* <div className="flex-1 flex flex-col bg-red-300"></div> */}
     </div>
   );
 };

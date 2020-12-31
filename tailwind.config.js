@@ -24,6 +24,12 @@ module.exports = {
         "golden-tainoi": "#fec258",
         mustard: "#fee058",
         "Light-Coral": "#ef6f6c",
+        "kar-blue": "#2F4858",
+        "nati-blue": "#186773",
+        "madhuri-green": "#1A8678",
+      },
+      outline: {
+        "solid-black": "2px solid #000000",
       },
     },
   },

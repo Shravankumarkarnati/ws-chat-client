@@ -12,16 +12,16 @@ const Layout: React.FC<LayoutProps> = () => {
   const { currentPage } = useSelector((state: RootState) => state.currentPage);
   return (
     <div
-      className="layout w-full h-full bg-alice-blue
-                  md:rounded-lg shadow-2xl
+      className="layout w-full h-full bg-black
+                  md:rounded-sm shadow-2xl
                   flex flex-col
                   overflow-hidden
     "
     >
       <Header />
-      {currentPage === "HOME" && <Home />}
+      {/* {currentPage === "HOME" && <Home />}
       {currentPage === "REGISTER" && <Register />}
-      {currentPage === "LOGIN" && <Login />}
+      {currentPage === "LOGIN" && <Login />} */}
     </div>
   );
 };

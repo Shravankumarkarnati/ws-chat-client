@@ -9,8 +9,8 @@ const BackgroundLayout: React.FC<BackgroundLayoutProps> = () => {
                   lg:flex flex-col
                   absolute z-0 top-0 left-0 "
     >
-      <div className="h-28 bg-golden-tainoi w-full"></div>
-      <div className="flex-1 bg-gray-200 w-full"></div>
+      <div className="h-28 bg-nati-blue w-full"></div>
+      <div className="flex-1 bg-alice-blue w-full"></div>
     </div>
   );
 };
