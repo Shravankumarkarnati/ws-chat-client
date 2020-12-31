@@ -1,16 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import useInput from "../../Hooks/useInput.hook";
-import AppContext from "../../Model/context";
 
 interface CurrentChatProps {}
 
 const CurrentChat: React.FC<CurrentChatProps> = () => {
   const { value, changeValue, resetField } = useInput("");
-  const { currentChatWith } = useContext(AppContext);
 
   const sendMessage = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("message Sent: " + value + "currentChat: ", currentChatWith);
     resetField();
   };
 
