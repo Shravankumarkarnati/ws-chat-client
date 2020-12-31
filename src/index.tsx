@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
+import BackgroundLayout from "./components/BackgroundLayout/BackgroundLayout.component";
 import "./index.css";
 import store from "./redux/store";
 
@@ -19,6 +20,7 @@ const render = () => {
   ReactDOM.render(
     <React.StrictMode>
       <Provider store={store}>
+        <BackgroundLayout />
         <App />
       </Provider>
     </React.StrictMode>,

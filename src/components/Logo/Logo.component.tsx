@@ -1,24 +1,22 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { changeCurrentPageAction } from "../../redux/currentPageReducer/actions";
+import { ReactComponent as LogoSvg } from "../../images/logo.svg";
+import { usePageChangeHandler } from "./../../Hooks/usePageChangeHandler";
 
 interface LogoProps {}
 
 const Logo: React.FC<LogoProps> = () => {
-  const dispatch = useDispatch();
-
-  const onLogoClick = () => {
-    dispatch(changeCurrentPageAction({ changeTo: "HOME" }));
-  };
+  const { homeChangePageHandler } = usePageChangeHandler();
 
   return (
-    <div className="flex items-center justify-center">
-      <span
-        className="text-2xl font-bold text-white cursor-pointer"
-        onClick={onLogoClick}
-      >
-        WS-CHAT
-      </span>
+    <div
+      className="flex items-center justify-center 
+                 w-10 h-10
+                 md:w-12 md:h-12 
+                 lg:w-16 lg:h-16 
+                 2xl:w-24 2xl:h-24"
+      onClick={homeChangePageHandler}
+    >
+      <LogoSvg className="w-full h-full" />
     </div>
   );
 };

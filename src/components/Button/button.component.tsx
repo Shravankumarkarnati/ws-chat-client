@@ -13,18 +13,19 @@ const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <div className="flex justify-center items-center">
-      <button
-        {...props}
-        onClick={onclick}
-        className={`text-md font-bold border-2 px-6 py-2 rounded-2xl shadow-md
-                    uppercase tracking-wider border-black  bg-white
-                    opacity-80 hover:opacity-100 active:outline-none focus:outline-none 
-                    ${classNames?.join(" ")}`}
-      >
-        {btnText}
-      </button>
-    </div>
+    <button
+      {...props}
+      onClick={onclick}
+      className={`font-semibold text-md xl:text-xl 2xl:text-3xl 
+                  tracking-wider uppercase text-jade
+                  py-3 px-4 xl:py-6 xl:px-8 last:ml-1 2xl:last:ml-4
+                  opacity-80 hover:opacity-100 hover:underline 
+                  ${classNames?.join(" ")}`}
+    >
+      {btnText}
+    </button>
   );
 };
 export default Button;
+
+// text-white bg-jade

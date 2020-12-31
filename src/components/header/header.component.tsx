@@ -24,12 +24,12 @@ const Header: React.FC<HeaderProps> = () => {
     dispatch(logOutAction());
     dispatch(currentChatWithAction({ id: null }));
   };
-
   return (
     <div
-      className="container h-16 
-    bg-indigo-500 rounded-md flex items-center justify-between
-      p-2"
+      className="w-full h-20 xl:h-24 2xl:h-40 bg-alice-blue
+                    flex items-center justify-between
+                    p-4 2xl:p-8
+    "
     >
       <Logo />
       <div className="flex items-center justify-end">
