@@ -41,7 +41,11 @@ const SearchResultItem: React.FC<SearchResultItemProps> = ({
       receiver: { id: receiver_id, username: receiver_username },
     });
 
-    receiver_id && dispatch(currentChatWithAction({ id: receiver_id }));
+    receiver_id &&
+      receiver_username &&
+      dispatch(
+        currentChatWithAction({ id: receiver_id, username: receiver_username })
+      );
     setResults({
       loading: false,
       data: null,

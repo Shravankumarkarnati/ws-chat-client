@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = () => {
 
   const LogoutHandler = () => {
     dispatch(logOutAction());
-    dispatch(currentChatWithAction({ id: null }));
+    dispatch(currentChatWithAction({ id: null, username: null }));
   };
 
   return (

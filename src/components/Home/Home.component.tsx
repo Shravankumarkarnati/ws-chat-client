@@ -9,7 +9,7 @@ const Home: React.FC<HomeProps> = () => {
     <div className="w-full h-full flex items-stretch">
       <ChatLogs />
       <div className="flex-1 bg-black"></div>
-      {/* <CurrentChat /> */}
+      <CurrentChat />
     </div>
   );
 };

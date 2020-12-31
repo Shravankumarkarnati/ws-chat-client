@@ -1,42 +1,62 @@
 import React from "react";
 import useInput from "../../Hooks/useInput.hook";
+import Button from "../Button/button.component";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/rootReducer";
+import { BsArrowLeft } from "react-icons/bs";
 
 interface CurrentChatProps {}
 
 const CurrentChat: React.FC<CurrentChatProps> = () => {
   const { value, changeValue, resetField } = useInput("");
+  const { username } = useSelector(
+    (state: RootState) => state.user.currentChatWith
+  );
 
   const sendMessage = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     resetField();
+    console.log(value);
   };
 
   return (
     <div
-      className="h-full w-full p-2 rounded-xl overflow-hidden
-                     flex flex-col-reverse justify-between items-stretch"
+      className="h-full w-full
+                    flex flex-col-reverse
+    "
     >
-      <form
-        className="h-16 flex justify-between items-center bg-blue-200 p-1"
-        onSubmit={sendMessage}
-      >
-        <input
-          placeholder="Type..."
-          type="text"
-          value={value}
-          onChange={changeValue}
-          className="p-4 h-full flex-1 mr-3 rounded-xl text-lg"
-        />
-        <button
-          className="mx-3 border-2 p-3 rounded-xl
-                    bg-blue-500 text-white shadow-lg
-                    hover:opacity-80
-        "
+      <div className="input h-12 bg-gray-300">
+        <form
+          className="h-full flex justify-between items-center"
+          onSubmit={sendMessage}
         >
-          SEND
-        </button>
-      </form>
-      <div className="flex-1 flex flex-col bg-red-300"></div>
+          <input
+            placeholder="Type your message..."
+            type="text"
+            value={value}
+            onChange={changeValue}
+            className="p-4 h-full flex-1 text-lg bg-gray-300"
+          />
+          <Button
+            btnText="Send"
+            classNames={["h-full", "px-4", "rounded-full"]}
+          />
+        </form>
+      </div>
+      <div className="messages bg-red-500 flex-1"></div>
+      <div
+        className="header border-2 border-gray-500 h-12
+                      flex items-center justify-between
+                      px-4 py-1
+      "
+      >
+        <div className="w-8 h-full">
+          <BsArrowLeft className="h-full w-full cursor-pointer" title="Back" />
+        </div>
+        <p className="text-lg text-black font-semibold">{username}</p>
+      </div>
+
+      {/* <div className="flex-1 flex flex-col bg-red-300"></div> */}
     </div>
   );
 };

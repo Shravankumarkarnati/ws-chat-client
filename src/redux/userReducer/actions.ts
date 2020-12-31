@@ -7,6 +7,7 @@ interface ILoginActionPayload {
 
 interface ICurrentChatPayload {
   id: string | null;
+  username: string | null;
 }
 
 export const logInAction = createAction<ILoginActionPayload>("user/logIn");
