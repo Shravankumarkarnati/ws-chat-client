@@ -56,7 +56,7 @@ const Login: React.FC<LoginProps> = () => {
     <div className="flex flex-col justify-start items-center pt-20">
       <h1
         className="font-extrabold text-3xl md:text-4xl uppercase
-                    text-indigo-600 tracking-widest leading-8 "
+                    text-jade tracking-widest leading-8 "
       >
         Login
       </h1>
@@ -77,11 +77,7 @@ const Login: React.FC<LoginProps> = () => {
           value={password}
           changeValue={changePassword}
         />
-        <Button
-          type="submit"
-          btnText="Submit"
-          classNames={["mt-10", "bg-indigo-600", "text-white"]}
-        />
+        <Button type="submit" btnText="Submit" classNames={["mt-10", "px-8"]} />
       </form>
     </div>
   );

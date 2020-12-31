@@ -60,7 +60,7 @@ const ChatLogs: React.FC<ChatLogsProps> = () => {
         </div>
         <input
           type="text"
-          placeholder="Search for a Username"
+          placeholder="Search for an Username"
           value={inputText}
           onChange={changeInputText}
           className="flex-1 px-1 pl-3 h-full
@@ -79,7 +79,14 @@ const ChatLogs: React.FC<ChatLogsProps> = () => {
           </div>
         ) : null}
       </div>
-      {(inputText.length && <SearchResults results={results} />) || null}
+      {(inputText.length && (
+        <SearchResults
+          results={results}
+          setResults={setResults}
+          setInputText={setInputText}
+        />
+      )) ||
+        null}
     </div>
   );
 };
