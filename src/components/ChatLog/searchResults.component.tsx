@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import AppContext from "../../Model/context";
 import { socket } from "./../../App";
 import { IResults } from "./../../Hooks/useDebouncedHook";
+import LoadingSpinner from "./../LoadingSpinner/LoadingSpinner.component";
 
 interface SearchResultsProps {
   results: IResults;
@@ -53,8 +54,8 @@ const SearchResultItem: React.FC<SearchResultItemProps> = ({
 const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
   const { data, loading, error } = results;
   return (
-    <div>
-      {loading && <h1>Loading....</h1>}
+    <div className="flex-1">
+      {loading && <LoadingSpinner />}
       {error && <h1>Error: {error}</h1>}
       {data &&
         data.length > 0 &&

@@ -46,7 +46,7 @@ const ChatLogs: React.FC<ChatLogsProps> = () => {
   };
 
   return (
-    <div className="w-1/4">
+    <div className="w-1/4 flex flex-col">
       <div
         className="searchContainer w-full h-12 bg-gray-300
                       flex items-center
@@ -67,8 +67,7 @@ const ChatLogs: React.FC<ChatLogsProps> = () => {
                         bg-transparent
                       placeholder-gray-500
                       focus:outline-none
-                      text-xl            
-                      "
+                      text-xl"
         />
 
         {inputText.length ? (
