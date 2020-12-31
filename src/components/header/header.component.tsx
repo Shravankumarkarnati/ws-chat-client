@@ -7,6 +7,7 @@ import Logo from "../Logo/Logo.component";
 import { usePageChangeHandler } from "./../../Hooks/usePageChangeHandler";
 import { currentChatWithAction } from "./../../redux/userReducer/actions";
 import SearchBar from "./searchBar.component";
+import BtnMinimal from "./../Button/minimalBtn.component";
 
 interface HeaderProps {}
 
@@ -41,14 +42,14 @@ const Header: React.FC<HeaderProps> = () => {
           <Button onclick={LogoutHandler} btnText={`${username} (Logout) `} />
         ) : (
           <>
+            {currentPage !== "HOME" && (
+              <BtnMinimal onclick={homeChangePageHandler} text={"home"} />
+            )}
             {currentPage !== "LOGIN" && (
-              <Button onclick={loginChangePageHandler} btnText={"Login"} />
+              <BtnMinimal onclick={loginChangePageHandler} text="Login" />
             )}
             {currentPage !== "REGISTER" && (
-              <Button onclick={regChangePageHandler} btnText={"Register"} />
-            )}
-            {currentPage !== "HOME" && (
-              <Button onclick={homeChangePageHandler} btnText={"HOME"} />
+              <BtnMinimal onclick={regChangePageHandler} text={"Register"} />
             )}
           </>
         )}

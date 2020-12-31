@@ -27,9 +27,10 @@ module.exports = {
         "kar-blue": "#2F4858",
         "nati-blue": "#186773",
         "madhuri-green": "#1A8678",
+        "kar-black": "#000619",
       },
       outline: {
-        "solid-black": "2px solid #000000",
+        "solid-black": "2px solid #2F4858",
       },
     },
   },

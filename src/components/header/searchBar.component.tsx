@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { HiSearch } from "react-icons/hi";
-import { ImCross } from "react-icons/im";
+import { ImSpinner2 } from "react-icons/im";
 import useInput from "../../Hooks/useInput.hook";
 
 interface SearchBarProps {}
@@ -21,9 +21,10 @@ const SearchBar: React.FC<SearchBarProps> = () => {
     <div
       className="searchBar w-1/2 h-full
                       flex items-center
-                      focus-within:outline-solid-black
-                      rounded-sm
+                      rounded-md
+                      tracking-tighter
                       overflow-hidden
+                      bg-gray-400
       "
     >
       <div
@@ -33,7 +34,7 @@ const SearchBar: React.FC<SearchBarProps> = () => {
         "
         onClick={onSearchClick}
       >
-        <HiSearch className="h-full w-full fill-current text-madhuri-green" />
+        <HiSearch className="h-full w-full fill-current text-kar-black" />
       </div>
       <input
         ref={inputRef}
@@ -48,10 +49,15 @@ const SearchBar: React.FC<SearchBarProps> = () => {
       />
       {value.length ? (
         <div
-          className="h-full w-4 bg-transparent mx-3 cursor-pointer"
+          className="h-full w-8 bg-transparent mx-3 cursor-pointer"
           onClick={clearSearchBox}
         >
-          <ImCross className="h-full w-full fill-current text-madhuri-green" />
+          <ImSpinner2
+            className="spinner w-full h-full 
+                    fill-current text-madhuri-green
+                    animate-spin
+                    "
+          />
         </div>
       ) : null}
     </div>

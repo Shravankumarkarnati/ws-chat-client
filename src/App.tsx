@@ -8,7 +8,7 @@ export const socket = openSocket(process.env.REACT_APP_SOCKET_URL as string);
 function App() {
   return (
     <div
-      className="App font-inter w-full h-full  
+      className="App font-inter text-kar-black w-full h-full  
                     p-0 lg:p-8 absolute z-20"
     >
       <Layout />
