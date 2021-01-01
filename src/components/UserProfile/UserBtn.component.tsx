@@ -12,10 +12,10 @@ export const UserBtn: React.FC<UserBtnProps> = ({ text, dark }) => {
         className={
           "w-full px-4 rounded-md text-sm py-1 " +
           "tracking-tighter border-kar-blue shadow-xl " +
-          "opacity-90 hover:opacity-100 " +
+          "opacity-90 hover:opacity-100 border-2 " +
           (dark
-            ? " text-alice-blue bg-kar-blue"
-            : " bg-alice-blue text-kar-blue border-2")
+            ? " text-alice-blue bg-kar-blue hover:bg-alice-blue hover:text-kar-blue"
+            : " bg-alice-blue text-kar-blue  hover:text-alice-blue hover:bg-kar-blue")
         }
       >
         {text}

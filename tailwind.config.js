@@ -36,15 +36,19 @@ module.exports = {
       gridTemplateColumns: {
         userProfile: "1fr min-content",
       },
+      animation: {
+        "spin-once": "spin 1s linear 1",
+      },
     },
   },
   variants: {
     extend: {
       outline: ["active"],
       margin: ["last", "focus-within"],
+      animation: ["hover", "focus"],
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 };
 
 /*

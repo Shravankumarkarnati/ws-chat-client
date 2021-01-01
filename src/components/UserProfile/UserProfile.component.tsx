@@ -1,8 +1,8 @@
 import React from "react";
-import UserDetails from "./userDetails.component";
-import { TiTick } from "react-icons/ti";
 import { UserBtn } from "./UserBtn.component";
+import UserDetails from "./userDetails.component";
 import UserFooter from "./UserFooter.component";
+import UserWorkspaces from "./userWorkspaces.component";
 
 interface UserProfileProps {}
 
@@ -22,12 +22,8 @@ const UserProfile: React.FC<UserProfileProps> = () => {
         className="info flex flex-col w-full
                         items-center justify-start mt-4
       "
-      >
-        {/* <div className="pro flex items-center justify-start">
-          <TiTick /> <p className="text-sm text-gray-600">Pro Member</p>
-        </div> */}
-      </div>
-      <div className="flex-1 w-full bg-alice-blue-light"></div>
+      ></div>
+      <UserWorkspaces />
       <UserFooter />
     </div>
   );

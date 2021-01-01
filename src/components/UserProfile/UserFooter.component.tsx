@@ -1,5 +1,6 @@
 import React from "react";
 import { UserBtn } from "./UserBtn.component";
+import { IoIosHelpCircle, IoMdSettings } from "react-icons/io";
 
 interface UserFooterProps {}
 
@@ -9,12 +10,21 @@ const UserFooter: React.FC<UserFooterProps> = () => {
       <div className="flex flex-col-reverse items-center">
         <UserBtn text="Invite" dark={true} />
       </div>
-      <div className="flex">
-        <UserBtn text="Help" dark={false} />
+      <div className="flex items-center justify-between">
+        <IoIosHelpCircle
+          className="h-6 w-6 fill-current text-kar-blue "
+          title="Help"
+        />
+        <IoMdSettings
+          className="h-6 w-6 fill-current text-kar-blue hover:animate-spin-once"
+          title="Settings"
+        />
         <UserBtn text="Logout" dark={false} />
       </div>
       <div className="companyInfo w-full text-center my-2">
-        <p className="w-full text-xs text-gray-600">&copy; Company Inc. </p>
+        <p className="w-full text-xs text-gray-600 hover:underline cursor-pointer">
+          &copy; Company Inc.{" "}
+        </p>
       </div>
     </footer>
   );
