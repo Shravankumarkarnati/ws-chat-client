@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { HiSearch } from "react-icons/hi";
+import { IoIosSearch } from "react-icons/io";
 import { ImSpinner2 } from "react-icons/im";
 import { MdError } from "react-icons/md";
 import { useSelector } from "react-redux";
@@ -36,7 +36,7 @@ const SearchBar: React.FC<SearchBarProps> = () => {
                       rounded-md
                       tracking-tighter
                       overflow-hidden
-                      bg-gray-400
+                      bg-gray-200
       "
     >
       <div
@@ -46,7 +46,7 @@ const SearchBar: React.FC<SearchBarProps> = () => {
         "
         onClick={onSearchClick}
       >
-        <HiSearch className="h-full w-full fill-current text-kar-black" />
+        <IoIosSearch className="h-full w-full fill-current text-nati-blue" />
       </div>
       <input
         ref={inputRef}

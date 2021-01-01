@@ -30,9 +30,10 @@ const Header: React.FC<HeaderProps> = () => {
   return (
     <div
       className="w-full h-14 lg:h-14 3xl:h-14 
-                  bg-gray-300
+                  bg-alice-blue
                   flex items-center justify-between
                   px-4 py-2
+                  border-b-2 border-nati-blue
     "
     >
       <Logo />

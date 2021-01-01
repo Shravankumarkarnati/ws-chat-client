@@ -18,6 +18,7 @@ module.exports = {
     extend: {
       colors: {
         "alice-blue": "#e6f2ff",
+        "alice-blue-light": "#CAD1E5",
         "hawkes-blue": "#ccddff",
         jade: "#00cb75",
         gossip: "#8ee26b",
@@ -31,6 +32,9 @@ module.exports = {
       },
       outline: {
         "solid-black": "2px solid #2F4858",
+      },
+      gridTemplateColumns: {
+        userProfile: "1fr min-content",
       },
     },
   },

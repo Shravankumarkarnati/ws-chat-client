@@ -1,13 +1,14 @@
 import React from "react";
+import UserProfile from "../components/UserProfile/UserProfile.component";
 
 interface DashboardProps {}
 
 const Dashboard: React.FC<DashboardProps> = () => {
   return (
     <div className="Dashboard w-full h-full flex items-stretch">
-      <div className="currentUser bg-red-300 w-1/5"></div>
-      <div className="Activity bg-green-300 flex-1"></div>
-      <div className="Feed bg-blue-300 w-1/4"></div>
+      <UserProfile />
+      <div className="UserActivity bg-green-300 flex-1"></div>
+      <div className="UserFeed bg-blue-300 w-1/4"></div>
     </div>
   );
 };
