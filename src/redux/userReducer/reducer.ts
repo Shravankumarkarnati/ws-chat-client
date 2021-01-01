@@ -1,15 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import {
-  currentChatWithAction,
-  logInAction,
-  logOutAction,
-  setSearchResults,
-} from "./actions";
-
-export interface ISearchResult {
-  id: string;
-  username: string;
-}
+import { currentChatWithAction, logInAction, logOutAction } from "./actions";
 
 interface userState {
   loggedIn: Boolean;
@@ -20,7 +10,6 @@ interface userState {
     id: string | null;
     username: string | null;
   };
-  searchResults: ISearchResult[] | null;
 }
 
 const initialState = {
@@ -32,7 +21,6 @@ const initialState = {
     id: null,
     username: null,
   },
-  searchResults: null,
 } as userState;
 
 const userReducer = createReducer(initialState, (builder) => {
@@ -49,9 +37,6 @@ const userReducer = createReducer(initialState, (builder) => {
       state.currentChatWith.flag = true;
       state.currentChatWith.username = username;
       state.currentChatWith.id = id;
-    })
-    .addCase(setSearchResults, (state, action) => {
-      state.searchResults = action.payload.results;
     });
 });
 

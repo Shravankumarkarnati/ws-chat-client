@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/rootReducer";
 import { currentChatWithAction } from "../../redux/userReducer/actions";
 import { socket } from "./../../App";
-import { IResults } from "./../../Hooks/useDebouncedHook";
+import { IResults } from "../header/useDebouncedHook";
 import { usePageChangeHandler } from "./../../Hooks/usePageChangeHandler";
 import LoadingSpinner from "./../LoadingSpinner/LoadingSpinner.component";
 

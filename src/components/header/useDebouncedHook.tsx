@@ -1,7 +1,13 @@
 import AwesomeDebouncePromise from "awesome-debounce-promise";
 import { useState } from "react";
 import { useAsync } from "react-async-hook";
+import { useDispatch } from "react-redux";
 import useConstant from "use-constant";
+import {
+  setSearchError,
+  setSearchLoading,
+  setSearchResults,
+} from "../../redux/searchResults/actions";
 
 export interface IResults {
   loading: Boolean;
@@ -12,11 +18,7 @@ export interface IResults {
 const useDebouncedSearch = (searchFunction: Function, time: number = 1000) => {
   const [inputText, setInputText] = useState("");
 
-  const [results, setResults] = useState<IResults>({
-    loading: false,
-    error: null,
-    data: null,
-  });
+  const dispatch = useDispatch();
 
   const debouncedSearchFunction = useConstant(() =>
     AwesomeDebouncePromise(searchFunction as any, time)
@@ -24,21 +26,24 @@ const useDebouncedSearch = (searchFunction: Function, time: number = 1000) => {
 
   useAsync(async () => {
     if (inputText.length !== 0) {
-      setResults({ ...results, loading: true });
+      dispatch(setSearchLoading(true));
       const data = await debouncedSearchFunction(inputText);
-      setResults({
-        loading: false,
-        error: null,
-        data,
-      });
+      if (data.status) {
+        dispatch(setSearchResults(data.data));
+      } else {
+        dispatch(setSearchError(data.data));
+      }
+      dispatch(setSearchLoading(false));
+    } else {
+      dispatch(setSearchLoading(false));
+      dispatch(setSearchError(null));
+      dispatch(setSearchResults(null));
     }
   }, [debouncedSearchFunction, inputText]);
 
   return {
     inputText,
     setInputText,
-    results,
-    setResults,
   };
 };
 

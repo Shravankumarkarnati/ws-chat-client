@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { HiSearch } from "react-icons/hi";
 import { ImCross } from "react-icons/im";
-import useDebouncedSearch from "../../Hooks/useDebouncedHook";
+import useDebouncedSearch from "../header/useDebouncedHook";
 import SearchResults from "./searchResults.component";
 
 interface ChatLogsProps {}
@@ -11,12 +11,7 @@ const ChatLogs: React.FC<ChatLogsProps> = () => {
   const useSearchUsernameResults = () =>
     useDebouncedSearch((text: string) => searchUsernameResults(text));
 
-  const {
-    inputText,
-    setInputText,
-    results,
-    setResults,
-  } = useSearchUsernameResults();
+  const { inputText, setInputText } = useSearchUsernameResults();
 
   const changeInputText = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputText(event.target.value);
@@ -38,11 +33,11 @@ const ChatLogs: React.FC<ChatLogsProps> = () => {
 
   const clearSearchBox = () => {
     setInputText("");
-    setResults({
-      loading: false,
-      data: null,
-      error: null,
-    });
+    // setResults({
+    //   loading: false,
+    //   data: null,
+    //   error: null,
+    // });
   };
 
   return (
@@ -79,14 +74,14 @@ const ChatLogs: React.FC<ChatLogsProps> = () => {
           </div>
         ) : null}
       </div>
-      {(inputText.length && (
+      {/* {(inputText.length && (
         <SearchResults
           results={results}
           setResults={setResults}
           setInputText={setInputText}
         />
       )) ||
-        null}
+        null} */}
     </div>
   );
 };

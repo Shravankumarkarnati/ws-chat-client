@@ -1,5 +1,5 @@
 import axios from "axios";
-import useDebouncedSearch from "../../Hooks/useDebouncedHook";
+import useDebouncedSearch from "./useDebouncedHook";
 
 export const searchUsernameResults = async (text: string) => {
   const apiUrl = `${process.env.REACT_APP_API_URL as string}/search`;
@@ -10,8 +10,23 @@ export const searchUsernameResults = async (text: string) => {
       },
     })
     .then((results) => {
-      if (results.data.success) return results.data.results;
-      return [];
+      if (results.data.success) {
+        return {
+          status: true,
+          data: results.data.results,
+        };
+      } else {
+        return {
+          status: false,
+          data: "Server Error",
+        };
+      }
+    })
+    .catch((err) => {
+      return {
+        status: false,
+        data: err,
+      };
     });
 };
 
