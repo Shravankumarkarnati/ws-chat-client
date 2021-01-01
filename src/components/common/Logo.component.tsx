@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as LogoSvg } from "../../images/logo.svg";
-import { usePageChangeHandler } from "./../../Hooks/usePageChangeHandler";
+import { usePageChangeHandler } from "../../Hooks/usePageChangeHandler";
 
 interface LogoProps {}
 

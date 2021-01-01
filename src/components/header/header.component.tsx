@@ -2,12 +2,12 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/rootReducer";
 import { logOutAction } from "../../redux/userReducer/actions";
-import Button from "../Button/button.component";
-import Logo from "../Logo/Logo.component";
-import { usePageChangeHandler } from "./../../Hooks/usePageChangeHandler";
-import { currentChatWithAction } from "./../../redux/userReducer/actions";
+import Button from "../common/button.component";
+import Logo from "../common/Logo.component";
+import { usePageChangeHandler } from "../../Hooks/usePageChangeHandler";
+import { currentChatWithAction } from "../../redux/userReducer/actions";
 import SearchBar from "./searchBar.component";
-import BtnMinimal from "./../Button/minimalBtn.component";
+import BtnMinimal from "../common/minimalBtn.component";
 
 interface HeaderProps {}
 

@@ -1,11 +1,11 @@
 import React from "react";
 
-interface BackgroundLayoutProps {}
+interface WrapperBgProps {}
 
-const BackgroundLayout: React.FC<BackgroundLayoutProps> = () => {
+const WrapperBg: React.FC<WrapperBgProps> = () => {
   return (
     <div
-      className="backgroundLayout hidden w-full h-full 
+      className="WrapperBg hidden w-full h-full 
                   lg:flex flex-col
                   absolute z-0 top-0 left-0 "
     >
@@ -14,4 +14,4 @@ const BackgroundLayout: React.FC<BackgroundLayoutProps> = () => {
     </div>
   );
 };
-export default BackgroundLayout;
+export default WrapperBg;

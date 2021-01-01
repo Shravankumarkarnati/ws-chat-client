@@ -1,5 +1,5 @@
 import axios from "axios";
-import useDebouncedSearch from "./useDebouncedHook";
+import useDebouncedSearch from "../../Hooks/useDebounced";
 
 export const searchUsernameResults = async (text: string) => {
   const apiUrl = `${process.env.REACT_APP_API_URL as string}/search`;
@@ -22,10 +22,10 @@ export const searchUsernameResults = async (text: string) => {
         };
       }
     })
-    .catch((err) => {
+    .catch((err: Error) => {
       return {
         status: false,
-        data: err,
+        data: err.message,
       };
     });
 };

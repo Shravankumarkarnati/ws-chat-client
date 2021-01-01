@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import useInput from "../../Hooks/useInput.hook";
-import Button from "../Button/button.component";
+import useInput from "../../Hooks/useInput";
+import Button from "../common/button.component";
 import TextInput from "../TextInput/TextInput.component";
 import { usePageChangeHandler } from "./../../Hooks/usePageChangeHandler";
 import { logInAction } from "./../../redux/userReducer/actions";

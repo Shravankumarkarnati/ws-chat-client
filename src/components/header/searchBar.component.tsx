@@ -1,6 +1,9 @@
 import React, { useRef } from "react";
 import { HiSearch } from "react-icons/hi";
 import { ImSpinner2 } from "react-icons/im";
+import { MdError } from "react-icons/md";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/rootReducer";
 import { useSearchUsernameResults } from "./searchUsernameResults.util";
 
 interface SearchBarProps {}
@@ -9,6 +12,10 @@ const SearchBar: React.FC<SearchBarProps> = () => {
   const inputRef = useRef<any>(null);
 
   const { inputText, setInputText } = useSearchUsernameResults();
+
+  const { loading: searchLoading, error: SearchError } = useSelector(
+    (state: RootState) => state.searchResults
+  );
 
   const clearSearchBox = () => {
     setInputText("");
@@ -52,7 +59,7 @@ const SearchBar: React.FC<SearchBarProps> = () => {
                       placeholder-gray-600
           "
       />
-      {inputText.length ? (
+      {searchLoading ? (
         <div
           className="h-full w-8 bg-transparent mx-3 cursor-pointer"
           onClick={clearSearchBox}
@@ -61,6 +68,20 @@ const SearchBar: React.FC<SearchBarProps> = () => {
             className="spinner w-full h-full 
                     fill-current text-madhuri-green
                     animate-spin
+                    "
+          />
+        </div>
+      ) : null}
+
+      {SearchError && inputText.length ? (
+        <div
+          className="h-full w-8 bg-transparent mx-3 cursor-pointer"
+          onClick={clearSearchBox}
+          title={SearchError}
+        >
+          <MdError
+            className="error w-full h-full 
+                    fill-current text-red-600
                     "
           />
         </div>

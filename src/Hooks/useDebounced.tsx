@@ -7,7 +7,7 @@ import {
   setSearchError,
   setSearchLoading,
   setSearchResults,
-} from "../../redux/searchResults/actions";
+} from "../redux/searchResults/actions";
 
 export interface IResults {
   loading: Boolean;
@@ -27,6 +27,7 @@ const useDebouncedSearch = (searchFunction: Function, time: number = 1000) => {
   useAsync(async () => {
     if (inputText.length !== 0) {
       dispatch(setSearchLoading(true));
+      dispatch(setSearchError(null));
       const data = await debouncedSearchFunction(inputText);
       if (data.status) {
         dispatch(setSearchResults(data.data));
@@ -34,10 +35,6 @@ const useDebouncedSearch = (searchFunction: Function, time: number = 1000) => {
         dispatch(setSearchError(data.data));
       }
       dispatch(setSearchLoading(false));
-    } else {
-      dispatch(setSearchLoading(false));
-      dispatch(setSearchError(null));
-      dispatch(setSearchResults(null));
     }
   }, [debouncedSearchFunction, inputText]);
 
