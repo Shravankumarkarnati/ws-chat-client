@@ -1,22 +1,27 @@
 import React, { useRef } from "react";
 import { HiSearch } from "react-icons/hi";
 import { ImSpinner2 } from "react-icons/im";
-import useInput from "../../Hooks/useInput.hook";
+import { useSearchUsernameResults } from "./searchUsernameResults.util";
 
 interface SearchBarProps {}
 
 const SearchBar: React.FC<SearchBarProps> = () => {
   const inputRef = useRef<any>(null);
 
-  const { value, changeValue, resetField } = useInput("");
+  const { inputText, setInputText } = useSearchUsernameResults();
 
   const clearSearchBox = () => {
-    resetField();
+    setInputText("");
+  };
+
+  const changeInputText = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputText(event.target.value);
   };
 
   const onSearchClick = () => {
     inputRef.current.focus();
   };
+
   return (
     <div
       className="searchBar w-1/2 h-full
@@ -39,15 +44,15 @@ const SearchBar: React.FC<SearchBarProps> = () => {
       <input
         ref={inputRef}
         type="text"
-        value={value}
-        onChange={changeValue}
+        value={inputText}
+        onChange={changeInputText}
         placeholder="Search username"
         className="px-2 py-1 text-md w-full h-full bg-transparent
                       focus:outline-none
                       placeholder-gray-600
           "
       />
-      {value.length ? (
+      {inputText.length ? (
         <div
           className="h-full w-8 bg-transparent mx-3 cursor-pointer"
           onClick={clearSearchBox}
