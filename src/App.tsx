@@ -1,6 +1,5 @@
 import React from "react";
 import openSocket from "socket.io-client";
-import "./app.css";
 import AppContainer from "./layout/AppContainer.layout";
 
 export const socket = openSocket(process.env.REACT_APP_SOCKET_URL as string);

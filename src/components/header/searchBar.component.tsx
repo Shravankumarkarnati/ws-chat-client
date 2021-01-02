@@ -46,7 +46,7 @@ const SearchBar: React.FC<SearchBarProps> = () => {
         "
         onClick={onSearchClick}
       >
-        <IoIosSearch className="h-full w-full fill-current text-nati-blue" />
+        <IoIosSearch className="h-full w-full fill-current text-color-primary" />
       </div>
       <input
         ref={inputRef}
@@ -66,7 +66,7 @@ const SearchBar: React.FC<SearchBarProps> = () => {
         >
           <ImSpinner2
             className="spinner w-full h-full 
-                    fill-current text-madhuri-green
+                    fill-current text-color-primary
                     animate-spin
                     "
           />

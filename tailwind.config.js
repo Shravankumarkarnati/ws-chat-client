@@ -17,14 +17,33 @@ module.exports = {
     },
     extend: {
       colors: {
-        "color-primary": "#4ecdc4ff",
-        "color-secondary": "#ff6b6bff",
-        "color-teritary": "#ffe66dff",
-        "color-black": "#292f36ff",
-        "color-white": "#f7fff7ff",
+        "alice-blue": "#ffffff",
+        "alice-blue-light": "#CAD1E5",
+        "hawkes-blue": "#ccddff",
+        jade: "#00cb75",
+        gossip: "#8ee26b",
+        "golden-tainoi": "#fec258",
+        mustard: "#fee058",
+        "Light-Coral": "#ef6f6c",
+        "kar-blue": "#2F4858",
+        "kar-blue-light": "#95b3c7",
+        "nati-blue": "#186773",
+        "madhuri-green": "#1A8678",
+        "kar-black": "#000000",
+        "color-primary": "#00cb75",
+        "color-secondary": "#8ee26b",
+        "color-black": "#000",
+        "color-white": "#F7F7F7",
+        "color-gray": "#a1a1a1",
+        "color-extra": "#292f36ff",
+        // "header-gradient":
+      },
+      height: {
+        vsm: "2px",
+        lsm: "10px",
       },
       outline: {
-        "solid-black": "2px solid #292f36ff",
+        "solid-black": "2px solid #000000",
       },
       gridTemplateColumns: {
         userProfile: "1fr min-content",
@@ -44,6 +63,10 @@ module.exports = {
   plugins: [],
 };
 
+// rgb(0, 124, 186)
+//  rgb(0, 107, 161)
+// rgb(0, 90, 135)
+
 // "alice-blue": "#e6f2ff",
 //         "alice-blue-light": "#CAD1E5",
 //         "hawkes-blue": "#ccddff",
@@ -59,7 +82,7 @@ module.exports = {
 //         "kar-black": "#000619",
 
 /*
-"alice-blue":"#e6f2ff"
+"color-white":"#e6f2ff"
 "hawkes-blue":"#ccddff"
 "jade":"#00cb75"
 "gossip":"#8ee26b"

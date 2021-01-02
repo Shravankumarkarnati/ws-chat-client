@@ -10,7 +10,7 @@ const AppContainer: React.FC<AppContainerProps> = () => {
   const { currentPage } = useSelector((state: RootState) => state.currentPage);
   return (
     <div
-      className="AppContainer w-full h-full bg-black
+      className="AppContainer w-full h-full 
                   md:rounded-sm shadow-2xl
                   flex flex-col
                   overflow-hidden

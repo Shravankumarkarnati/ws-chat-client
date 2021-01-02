@@ -2,20 +2,21 @@ import React from "react";
 
 interface UserBtnProps {
   text: string;
-  dark?: Boolean;
+  cta?: Boolean;
 }
 
-export const UserBtn: React.FC<UserBtnProps> = ({ text, dark }) => {
+export const UserBtn: React.FC<UserBtnProps> = ({ text, cta }) => {
+  const btnCTA =
+    "text-color-white bg-color-primary hover:bg-color-white hover:text-color-primary";
+  const btnNoCTA =
+    "bg-color-white text-color-primary hover:text-color-white hover:bg-color-primary";
   return (
     <div className="w-2/3 mt-2 p-1">
       <button
         className={
-          "w-full px-4 rounded-md text-sm py-1 " +
-          "tracking-tighter border-kar-blue shadow-xl " +
-          "opacity-90 hover:opacity-100 border-2 " +
-          (dark
-            ? " text-alice-blue bg-kar-blue hover:bg-alice-blue hover:text-kar-blue"
-            : " bg-alice-blue text-kar-blue  hover:text-alice-blue hover:bg-kar-blue")
+          "w-full px-4 rounded-md text-md py-1 border-2 " +
+          "tracking-tight border-color-secondary shadow-xl transition-all " +
+          (cta ? btnCTA : btnNoCTA)
         }
       >
         {text}

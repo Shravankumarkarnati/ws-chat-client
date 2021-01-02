@@ -8,11 +8,11 @@ const Dashboard: React.FC<DashboardProps> = () => {
   return (
     <div
       className="Dashboard w-full h-full flex items-stretch divide-x
-                    divide-kar-blue-light"
+                    divide-color-gray"
     >
       <UserProfile />
       <AllChat />
-      <div className="UserFeed bg-alice-blue w-1/4"></div>
+      <div className="UserFeed bg-color-white w-1/4"></div>
     </div>
   );
 };
