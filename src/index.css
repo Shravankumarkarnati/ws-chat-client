@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  --alice-blue: #e6f2ff;
+  --kar-black: #000619;
+}
+
+@layer utilities {
+  .scrollbar-master {
+    scrollbar-width: thin;
+    scrollbar-color: var(--kar-black) var(--alice-blue);
+  }
+  .scrollbar-master::-webkit-scrollbar {
+    width: 5px;
+  }
+  .scrollbar-master::-webkit-scrollbar-track {
+    background: var(--alice-blue);
+  }
+  .scrollbar-master::-webkit-scrollbar-thumb {
+    background-color: var(--kar-black);
+    border-radius: 2px;
+    border: 0.3px solid var(--alice-blue);
+  }
+}
