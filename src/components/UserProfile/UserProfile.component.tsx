@@ -10,7 +10,7 @@ const UserProfile: React.FC<UserProfileProps> = () => {
   return (
     <div
       className="UserProfile w-1/5 h-full
-                bg-alice-blue border-r-2 border-kar-blue
+                bg-alice-blue
                 flex flex-col items-center justify-start
                 pt-10 px-6"
     >

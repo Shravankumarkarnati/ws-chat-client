@@ -9,8 +9,8 @@ const AllChatHeader: React.FC<AllChatHeaderProps> = () => {
 
   return (
     <header
-      className="w-full flex h-12 items-center justify-between
-                          bg-gray-200 px-4 flex-shrink-0"
+      className="w-full flex h-20 items-center justify-between
+                          bg-alice-blue px-4 flex-shrink-0 border-b-2 border-kar-blue"
     >
       <p className="text-lg tracking-tight font-bold text-kar-black">Chats</p>
       <button>

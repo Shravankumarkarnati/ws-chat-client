@@ -6,10 +6,13 @@ interface DashboardProps {}
 
 const Dashboard: React.FC<DashboardProps> = () => {
   return (
-    <div className="Dashboard w-full h-full flex items-stretch">
+    <div
+      className="Dashboard w-full h-full flex items-stretch divide-x
+                    divide-kar-blue-light"
+    >
       <UserProfile />
       <AllChat />
-      <div className="UserFeed bg-blue-300 w-1/4"></div>
+      <div className="UserFeed bg-alice-blue w-1/4"></div>
     </div>
   );
 };

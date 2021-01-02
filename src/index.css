@@ -23,4 +23,11 @@ html {
     border-radius: 2px;
     border: 0.3px solid var(--alice-blue);
   }
+
+  .grid-master-chat {
+    display: grid;
+    grid-template-columns: 0.1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 1px;
+  }
 }
