@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer utilities {
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
   $color-white: #F7F7F7;
@@ -17,6 +16,23 @@
 
   html {
     font-family: 'Inter', sans-serif;
+
+    @keyframes menuOptionsMoveIn {
+      0% {
+        opacity:0;
+        transform: translateX(100vw);
+      }
+
+      95% {
+          opacity:.5;
+        transform: translateX(-1vw);
+      }
+
+      100% {
+        opacity:1;
+        transform: translateX(0);
+      }
+    }
   }
 
   .scrollbar-master {
@@ -45,4 +61,20 @@
     column-gap: 1px;
   }
 
-}
+
+
+  .menu-options-container {
+    display: grid;
+    grid-template-columns: max-content;
+    grid-auto-rows: auto;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    row-gap: 1rem;
+
+    & .menu-options {
+      animation: menuOptionsMoveIn .2s 1 linear;
+      }
+    }
+  }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const HamButton = styled.button`
@@ -12,6 +12,7 @@ const HamButton = styled.button`
   justify-content: center;
   height: 3rem;
   width: 3rem;
+  background-color: white;
   &,
   &:hover,
   &:active,
@@ -54,19 +55,26 @@ const HamBurger = styled.div`
       transform: rotate(45deg);
       visibility: visible;
       top: 0px;
+      background-color: white;
     }
     &::after {
       transform: rotate(-45deg);
       visibility: visible;
       top: 0px;
+      background-color: white;
     }
   }
 `;
 
-interface HamburgerStyledProps {}
+interface HamburgerStyledProps {
+  close: Boolean;
+  setClose: React.Dispatch<React.SetStateAction<Boolean>>;
+}
 
-const HamburgerStyled: React.FC<HamburgerStyledProps> = () => {
-  const [close, setClose] = useState(false);
+const HamburgerStyled: React.FC<HamburgerStyledProps> = ({
+  close,
+  setClose,
+}) => {
   return (
     <HamButton onClick={() => setClose(!close)}>
       <HamBurger className={close ? "open" : "close"} />
