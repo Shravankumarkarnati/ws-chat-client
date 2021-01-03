@@ -40,6 +40,9 @@ const AllChatHeader: React.FC<AllChatHeaderProps> = () => {
           <option className="bg-color-white" value="Mentions">
             Mentions
           </option>
+          <option className="bg-color-white" value="Archived">
+            Archived
+          </option>
         </select>
       </button>
     </header>
