@@ -31,7 +31,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ visible }) => {
     <div
       className={
         "UserMenu absolute top-0 left-0 w-full h-full  " +
-        "flex flex-col py-8 px-6  " +
+        "flex flex-col py-8 px-6 transition-all  " +
         "bg-gradient-to-t to-color-secondary from-color-primary  " +
         classes
       }

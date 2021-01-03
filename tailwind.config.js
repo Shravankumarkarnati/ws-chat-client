@@ -35,6 +35,7 @@ module.exports = {
         "color-black": "#000",
         "color-white": "#F7F7F7",
         "color-gray": "#a1a1a1",
+        "color-gray-light": "#D2D1D1",
         "color-extra": "#292f36ff",
         // "header-gradient":
       },

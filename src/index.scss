@@ -19,20 +19,33 @@
 
     @keyframes menuOptionsMoveIn {
       0% {
-        opacity:0;
+        opacity: 0;
         transform: translateX(100vw);
       }
 
       95% {
-          opacity:.5;
+        opacity: .5;
         transform: translateX(-1vw);
       }
 
       100% {
-        opacity:1;
+        opacity: 1;
         transform: translateX(0);
       }
     }
+
+    @keyframes UserMenuMoveIn {
+      0% {
+        transform: translate(-100%, -100%);
+        opacity: 0;
+      }
+
+      0% {
+        transform: translate(0, 0);
+        opacity: 1;
+      }
+    }
+
   }
 
   .scrollbar-master {
@@ -61,6 +74,9 @@
     column-gap: 1px;
   }
 
+  .UserMenu {
+    animation: UserMenuMoveIn 1;
+  }
 
 
   .menu-options-container {
@@ -75,6 +91,6 @@
 
     & .menu-options {
       animation: menuOptionsMoveIn .2s 1 linear;
-      }
     }
   }
+}

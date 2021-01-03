@@ -10,32 +10,34 @@ const AllChatHeader: React.FC<AllChatHeaderProps> = () => {
   return (
     <header
       className="w-full flex h-20 items-center justify-between
-                          bg-alice-blue px-4 flex-shrink-0 border-b-2 border-kar-blue"
+                          bg-color-white px-4 flex-shrink-0 border-b-2 border-color-gray"
     >
-      <p className="text-lg tracking-tight font-bold text-kar-black">Chats</p>
+      <p className="text-lg tracking-tight font-bold text-color-black ">
+        Inbox
+      </p>
       <button>
         <select
           className="font-normal text-sm flex items-center justify-between
-                              border-2 border-kar-blue px-3 py-1 rounded
+                              border-2 border-color-extra px-3 py-1 rounded
                               bg-transparent
           "
           name="filter"
           id="filter"
           onChange={optionChange}
         >
-          <option className="bg-gray-300" value="All">
+          <option className="bg-color-white" value="All">
             All Chats
           </option>
-          <option className="bg-gray-300" value="Flagged">
+          <option className="bg-color-white" value="Flagged">
             Flagged
           </option>
-          <option className="bg-gray-300" value="Unread">
+          <option className="bg-color-white" value="Unread">
             Unread
           </option>
-          <option className="bg-gray-300" value="Read">
+          <option className="bg-color-white" value="Read">
             Read
           </option>
-          <option className="bg-gray-300" value="Mentions">
+          <option className="bg-color-white" value="Mentions">
             Mentions
           </option>
         </select>
