@@ -17,7 +17,8 @@ const Chats: React.FC<ChatsProps> = () => {
         >
           <div
             className="scrollableContainer scrollbar-master 
-          flex-grow overflow-y-auto min-h-0 divide-y-2 divide-color-gray "
+                        flex-grow overflow-y-auto min-h-0 
+                        divide-y-2  divide-color-gray "
           >
             {mockData.map((cur, index) => (
               <SingleChat

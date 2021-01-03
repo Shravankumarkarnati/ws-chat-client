@@ -1,29 +1,7 @@
 import React from "react";
-import { getRandomBoolean, getRandomNumber } from "./../../utils/getRandom";
-import people1 from "../../images/people/1.jpg";
-import people2 from "../../images/people/2.jpg";
-import people3 from "../../images/people/3.jpg";
-import people4 from "../../images/people/4.jpg";
-import people5 from "../../images/people/5.jpg";
-
-import { BiPin, BiFlag } from "react-icons/bi";
-import { BsArchive } from "react-icons/bs";
-import styled from "styled-components";
-
-const getRandomImage = (n: number) => {
-  switch (n) {
-    case 1:
-      return people1;
-    case 2:
-      return people2;
-    case 3:
-      return people3;
-    case 4:
-      return people4;
-    case 5:
-      return people5;
-  }
-};
+import ChatOptions from "./ChatOptions.component";
+import { MoreOptionsButton, MoreOptionStyled } from "./SingleChat.styled";
+import { UserProfilePic } from "./UserProfilePic.component";
 
 export interface IMockDataItem {
   id: {
@@ -40,65 +18,6 @@ interface SingleChatProps {
   bgColor: Boolean;
   data: IMockDataItem;
 }
-
-const MoreOptionsButton = styled.button`
-  height: 25px;
-  width: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  &::hover,
-  &::active,
-  &::focus {
-    background: #a1a1a1;
-  }
-`;
-
-const MoreOptionStyled = styled.span`
-  position: relative;
-  height: 5px;
-  width: 5px;
-  background-color: #292f36ff;
-  border-radius: 1px;
-  &::before,
-  &::after {
-    content: " ";
-    position: absolute;
-    height: 5px;
-    width: 5px;
-    background-color: #292f36ff;
-    border-radius: 1px;
-  }
-
-  &::before {
-    left: -7px;
-  }
-  &::after {
-    left: 7px;
-  }
-`;
-
-const UserProfilePic: React.FC = () => {
-  const randomImage = getRandomImage(getRandomNumber(4) + 1);
-  const randomBoolean = getRandomBoolean();
-  const isUserOnline = randomBoolean
-    ? "  border-4 border-color-secondary "
-    : "  ";
-  console.log(randomImage);
-  return (
-    <div className="userProfilePic row-span-2 flex items-center justify-center">
-      <img
-        src={randomImage}
-        alt="Person's Name"
-        className={
-          "h-2/3 w-2/3 fill-current text-color-extra rounded-full  " +
-          isUserOnline
-        }
-        title={randomBoolean ? "Online" : "Offline"}
-      />
-    </div>
-  );
-};
 
 const SingleChat: React.FC<SingleChatProps> = ({ bgColor, data }) => {
   return (
@@ -117,27 +36,12 @@ const SingleChat: React.FC<SingleChatProps> = ({ bgColor, data }) => {
           </span>
           <span className="opacity-70 text-xs ml-4">@{"CompanyName"}</span>
         </div>
-        <div
-          className="chatOptions h-full flex 
-                        flex-1 justify-end items-center
-                        "
-        >
-          <BiFlag
-            title="Flag Chat"
-            className="h-5 w-5 mx-1 fill-current text-color-extra hover:text-color-primary"
-          />
-          <BiPin
-            title="Pin Chat"
-            className="h-5 w-5 mx-1 fill-current text-color-extra hover:text-color-primary"
-          />
-          <BsArchive
-            title="Archive Chat"
-            className="h-5 w-5 mx-1 fill-current text-color-extra hover:text-color-primary"
-          />
-        </div>
+        <ChatOptions />
       </div>
-      <div className="userChat flex justify-between items-center text-gray-700">
-        <p>{data.chat.slice(0, 50) + "..."}</p>
+      <div className="userChat flex justify-between items-center">
+        <p className="text-sm text-color-extra opacity-80">
+          {data.chat.slice(0, 50) + "..."}
+        </p>
         <MoreOptionsButton title="More Options">
           <MoreOptionStyled />
         </MoreOptionsButton>
