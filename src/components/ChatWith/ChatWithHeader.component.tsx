@@ -35,7 +35,7 @@ const ChatWithHeader: React.FC<ChatWithHeaderProps> = () => {
             "
         ></span>
         <span
-          className="text-md text-color-extra tracking-tighter
+          className="text-lg text-color-extra tracking-tighter
                                 font-bold
               "
         >

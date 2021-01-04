@@ -19,6 +19,7 @@ const Button: React.FC<ButtonProps> = ({
       className={`font-semibold text-sm
                   border-jade border-2 
                   p-2 last:ml-2 tracking-wider uppercase
+                  bg-color-white
                   rounded-lg
                   hover:bg-jade hover:text-white
                   hover:shadow-2xl

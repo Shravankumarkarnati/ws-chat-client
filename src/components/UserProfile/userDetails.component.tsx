@@ -1,5 +1,6 @@
 import React from "react";
 import { DiGithubBadge } from "react-icons/di";
+import UserProfilePicture from "../../images/people/user.jpeg";
 
 interface UserDetailsProps {}
 
@@ -14,7 +15,7 @@ const UserDetails: React.FC<UserDetailsProps> = () => {
                         flex items-center justify-center mr-4"
       >
         <img
-          src="https://avatars2.githubusercontent.com/u/26037098?s=460&u=5333557484dbaa1a95558e4c7ef7815550bfee44&v=4"
+          src={UserProfilePicture}
           alt="GitHub Profile"
           className="rounded-full border-4 border-color-secondary w-10 h-10"
         />

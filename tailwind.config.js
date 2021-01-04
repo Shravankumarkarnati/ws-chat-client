@@ -36,8 +36,14 @@ module.exports = {
         "color-white": "#F7F7F7",
         "color-gray": "#a1a1a1",
         "color-gray-light": "#D2D1D1",
+        "color-gray-light-2": "#f1ebeb",
         "color-extra": "#292f36ff",
         // "header-gradient":
+      },
+      maxWidth: {
+        "1/4": "25%",
+        "1/2": "50%",
+        "3/4": "75%",
       },
       height: {
         vsm: "2px",
