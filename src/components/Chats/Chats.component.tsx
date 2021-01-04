@@ -23,7 +23,6 @@ const Chats: React.FC<ChatsProps> = () => {
             {mockData.map((cur, index) => (
               <SingleChat
                 key={cur.id.$oid}
-                bgColor={index % 2 === 0}
                 data={cur}
               />
             ))}

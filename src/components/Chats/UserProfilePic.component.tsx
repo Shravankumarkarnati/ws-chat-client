@@ -26,7 +26,6 @@ export const UserProfilePic: React.FC = () => {
   const isUserOnline = randomBoolean
     ? "  border-4 border-color-secondary "
     : "  ";
-  console.log(randomImage);
   return (
     <div className="userProfilePic row-span-2 flex items-center justify-center">
       <img

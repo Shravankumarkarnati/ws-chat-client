@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const MoreOptionsButton = styled.button`
+  position: relative;
   height: 25px;
   width: 25px;
   display: flex;
