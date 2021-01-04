@@ -6,7 +6,7 @@ interface userState {
   username: string | null;
   id: string | null;
   currentChatWith: {
-    flag: Boolean;
+    isChatting: Boolean;
     id: string | null;
     username: string | null;
   };
@@ -17,7 +17,7 @@ const initialState = {
   username: null,
   id: null,
   currentChatWith: {
-    flag: false,
+    isChatting: false,
     id: null,
     username: null,
   },
@@ -34,7 +34,7 @@ const userReducer = createReducer(initialState, (builder) => {
     .addCase(logOutAction, (state, action) => initialState)
     .addCase(currentChatWithAction, (state, action) => {
       const { id, username } = action.payload;
-      state.currentChatWith.flag = true;
+      state.currentChatWith.isChatting = id ? true : false;
       state.currentChatWith.username = username;
       state.currentChatWith.id = id;
     });

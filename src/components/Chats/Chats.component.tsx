@@ -20,11 +20,8 @@ const Chats: React.FC<ChatsProps> = () => {
                         flex-grow overflow-y-auto min-h-0 
                         divide-y-2  divide-color-gray "
           >
-            {mockData.map((cur, index) => (
-              <SingleChat
-                key={cur.id.$oid}
-                data={cur}
-              />
+            {mockData.map((cur) => (
+              <SingleChat key={cur.id.$oid} data={cur} />
             ))}
           </div>
         </div>
