@@ -32,7 +32,7 @@ export const UserProfilePic: React.FC = () => {
         src={randomImage}
         alt="Person's Name"
         className={
-          "h-2/3 w-2/3 fill-current text-color-extra rounded-full  " +
+          "h-2/3 w-2/3 fill-current text-color-black-light rounded-full  " +
           isUserOnline
         }
         title={randomBoolean ? "Online" : "Offline"}

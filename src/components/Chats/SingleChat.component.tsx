@@ -32,7 +32,7 @@ const SingleChat: React.FC<SingleChatProps> = ({ data }) => {
   return (
     <div
       className="singleChat h-20 grid grid-rows-2 grid-master-chat 
-                    hover:bg-color-gray-light cursor-pointer
+                    hover:bg-color-gray-light-1 cursor-pointer
                      bg-color-white "
       onClick={openChatWithCurrentUser}
     >
@@ -50,7 +50,7 @@ const SingleChat: React.FC<SingleChatProps> = ({ data }) => {
         <ChatOptions />
       </div>
       <div className="userChat flex justify-between items-center">
-        <p className="text-sm text-color-extra opacity-80">
+        <p className="text-sm text-color-black-light opacity-80">
           {data.chat.slice(0, 50) + "..."}
         </p>
         <MoreOptionsButton

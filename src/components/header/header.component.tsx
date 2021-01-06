@@ -20,11 +20,11 @@ const Header: React.FC<HeaderProps> = () => {
       <SearchBar />
       <div className="flex items-center justify-end">
         <BsSun
-          className="fill-current text-color-extra w-6 h-6"
+          className="fill-current text-color-black-light w-6 h-6"
           title="Light Mode"
         />
         <GiMoon
-          className="fill-current text-color-extra w-6 h-6 ml-4"
+          className="fill-current text-color-black-light w-6 h-6 ml-4"
           title="Dark Mode"
         />
       </div>

@@ -32,13 +32,13 @@ module.exports = {
         "kar-black": "#000000",
         "color-primary": "#00cb75",
         "color-secondary": "#8ee26b",
-        "color-black": "#000",
+        "color-black": "#000000",
+        "color-black-light": "#292f36ff",
         "color-white": "#F7F7F7",
         "color-gray": "#a1a1a1",
         "color-gray-light": "#D2D1D1",
-        "color-grayred-light-1": "#ecdddd",
-        "color-grayred-light-2": "#fad8d8",
-        "color-extra": "#292f36ff",
+        "color-gray-light-2": "#C0C0C0",
+        "color-gray-light-3": "#D4D7DC",
         // "header-gradient":
       },
       maxWidth: {

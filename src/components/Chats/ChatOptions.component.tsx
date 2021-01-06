@@ -22,15 +22,15 @@ const ChatOptions: React.FC<ChatOptionsProps> = () => {
     >
       <BiFlag
         title="Flag Chat"
-        className="h-5 w-5 mx-1 fill-current text-color-extra hover:text-color-primary"
+        className="h-5 w-5 mx-1 fill-current text-color-black-light hover:text-color-primary"
       />
       <BiPin
         title="Pin Chat"
-        className="h-5 w-5 mx-1 fill-current text-color-extra hover:text-color-primary"
+        className="h-5 w-5 mx-1 fill-current text-color-black-light hover:text-color-primary"
       />
       <BsArchive
         title="Archive Chat"
-        className="h-5 w-5 mx-1 fill-current text-color-extra hover:text-color-primary"
+        className="h-5 w-5 mx-1 fill-current text-color-black-light hover:text-color-primary"
       />
       {mute ? (
         <VscMute
@@ -41,7 +41,7 @@ const ChatOptions: React.FC<ChatOptionsProps> = () => {
       ) : (
         <VscUnmute
           title="Archive Chat"
-          className="h-5 w-5 mx-1 fill-current text-color-extra hover:text-red-500"
+          className="h-5 w-5 mx-1 fill-current text-color-black-light hover:text-red-500"
           onClick={changeMuteStatus}
         />
       )}

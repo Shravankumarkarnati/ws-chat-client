@@ -26,7 +26,7 @@ const ChatWithHeader: React.FC<ChatWithHeaderProps> = () => {
         className="backToAllChats flex items-center"
         onClick={backToAllChats}
       >
-        <BsArrowLeft className="w-8 h-8 fill-current text-color-extra" />
+        <BsArrowLeft className="w-8 h-8 fill-current text-color-black-light" />
       </button>
       <div className="flex items-center justify-start">
         <span
@@ -35,7 +35,7 @@ const ChatWithHeader: React.FC<ChatWithHeaderProps> = () => {
             "
         ></span>
         <span
-          className="text-xl text-color-extra tracking-tighter
+          className="text-xl text-color-black-light tracking-tighter
                                 font-bold
               "
         >

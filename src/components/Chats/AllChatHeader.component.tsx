@@ -16,7 +16,7 @@ const AllChatHeader: React.FC<AllChatHeaderProps> = () => {
       <button>
         <select
           className="font-normal text-sm flex items-center justify-between
-                              border-2 border-color-extra px-3 py-1 rounded
+                              border-2 border-color-black-light px-3 py-1 rounded
                               bg-transparent
           "
           name="filter"

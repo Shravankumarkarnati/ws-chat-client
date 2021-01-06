@@ -23,7 +23,7 @@ const UserDetails: React.FC<UserDetailsProps> = () => {
       <div className="UserName flex flex-col justify-center items-start">
         <p
           className="text-md tracking-tighter font-semibold
-         text-color-extra"
+         text-color-black-light"
         >
           Shravan_Karnati
         </p>
